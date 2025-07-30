@@ -117,7 +117,6 @@ export default function NotificationsSection() {
                       )}{" "}
                       {notification.message}
                     </p>
-                    <p>access : {access?.status}</p>
 
                     <p>
                       <span className="text-primary text-base font-semibold">
