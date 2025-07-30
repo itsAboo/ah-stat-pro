@@ -11,7 +11,7 @@ export default function Layout() {
           <Outlet />
         </div>
       </div>
-      <ScrollToTop/>
+      <ScrollToTop />
     </>
   );
 }

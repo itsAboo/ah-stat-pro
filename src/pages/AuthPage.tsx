@@ -105,7 +105,7 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="border-2 border-primary mt-8 rounded-md w-full sm:max-w-[350px] mx-auto p-4">
+    <div className="border-2 border-primary sm:mt-8 rounded-md w-full sm:max-w-[350px] mx-auto p-4">
       <h1 className="text-2xl">
         {params.action === "signin" ? "Sign in" : "Sign up"}
       </h1>
