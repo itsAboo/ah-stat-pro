@@ -27,6 +27,7 @@ import {
   useUpdateMatch,
 } from "../../hooks/handicap-movement";
 import ConfirmModal from "../UI/ConfirmDialog";
+import BackdropProgress from "../UI/BackdropProgress";
 
 interface StatTableDetailProps {
   editable: boolean;
@@ -620,6 +621,11 @@ const StatTableDetail = ({
         description="Are you sure you want to delete this match? This action cannot be undone"
         onConfirm={handleRemoveMatches}
       />
+      {(isUpdateMatchPending || isRemoveMatchesPending) && (
+        <BackdropProgress
+          open={isUpdateMatchPending || isRemoveMatchesPending}
+        />
+      )}
     </>
   );
 };
