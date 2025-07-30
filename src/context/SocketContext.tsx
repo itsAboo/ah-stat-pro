@@ -29,7 +29,7 @@ export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
       return;
     }
 
-    const newSocket = io("http://localhost:3000", {
+    const newSocket = io(import.meta.env.VITE_APP_SOCKET_URL, {
       auth: { token },
     });
 
