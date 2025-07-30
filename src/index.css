@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme variables */
+@theme {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: #2196f3;
+  --color-secondary: #03a9f4;
+  --color-warning: #f50057;
+  --color-muted: #c4c4c4;
+  --color-dark-mode: #021d34;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* dark mode styles */
+.dark {
+  background-color: var(--color-dark-mode);
+  color: #ffffff;
+  --color-primary: #03a9f4;
+  --color-secondary: #2196f3;
+  --color-white: #000000;
+}
+
+.header {
+  color: #ffffff;
+  background-color: #2196f3;
+}
