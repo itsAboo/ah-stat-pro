@@ -290,7 +290,8 @@ const StatTable: React.FC<Props> = ({
                           >
                             {openRows.includes(row._id!) ? (
                               <KeyboardArrowUp />
-                            ) : row.matches?.some(
+                            ) : editable &&
+                              row.matches?.some(
                                 (match) => match.result === "P"
                               ) ? (
                               <Badge
