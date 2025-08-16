@@ -62,7 +62,7 @@ export default function PostList() {
 
   return (
     <>
-      {isLoading && (
+      {!isLoading && (
         <div className="flex justify-end items-center">
           <Button component={Link} to="/create" variant="contained">
             Create
