@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
 import { Button, Skeleton } from "@mui/material";
@@ -6,10 +6,10 @@ import { useUser } from "../../hooks/auth";
 import AccountButton from "../UI/AccountButton";
 import MenuMobile from "./MenuMobile";
 import NotificationButton from "../notification/NotificationButton";
-import { useSocket } from "../../context/SocketContext";
-import { Notification } from "../../types";
+// import { useSocket } from "../../context/SocketContext";
+// import { Notification } from "../../types";
 import { useGetNotifications } from "../../hooks/notification";
-import { useQueryClient } from "@tanstack/react-query";
+// import { useQueryClient } from "@tanstack/react-query";
 
 export default function Header() {
   const { SwitchButton } = useContext(ThemeContext)!;
@@ -18,34 +18,34 @@ export default function Header() {
   const { data: notifications, isLoading: isNotificationsLoading } =
     useGetNotifications();
 
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
-  const { socket } = useSocket();
+  // const { socket } = useSocket();
 
-  useEffect(() => {
-    if (!socket) return;
+  // useEffect(() => {
+  //   if (!socket) return;
 
-    const handleNotification = (data: Notification) => {
-      queryClient.invalidateQueries({ queryKey: ["notifications", user?.id] });
+  //   const handleNotification = (data: Notification) => {
+  //     queryClient.invalidateQueries({ queryKey: ["notifications", user?.id] });
 
-      if (data.type === "access_request" || data.type === "access_rejected") {
-        queryClient.invalidateQueries({ queryKey: ["access-request"] });
-      }
+  //     if (data.type === "access_request" || data.type === "access_rejected") {
+  //       queryClient.invalidateQueries({ queryKey: ["access-request"] });
+  //     }
 
-      if (data.type === "access_approved") {
-        queryClient.invalidateQueries({ queryKey: ["access-request"] });
-        queryClient.invalidateQueries({
-          queryKey: ["post-accesses", data.recipientId],
-        });
-      }
-    };
+  //     if (data.type === "access_approved") {
+  //       queryClient.invalidateQueries({ queryKey: ["access-request"] });
+  //       queryClient.invalidateQueries({
+  //         queryKey: ["post-accesses", data.recipientId],
+  //       });
+  //     }
+  //   };
 
-    socket.on("notification", handleNotification);
+  //   socket.on("notification", handleNotification);
 
-    return () => {
-      socket.off("notification", handleNotification);
-    };
-  }, [socket, notifications, queryClient, user?.id]);
+  //   return () => {
+  //     socket.off("notification", handleNotification);
+  //   };
+  // }, [socket, notifications, queryClient, user?.id]);
 
   return (
     <div className="header fixed w-full z-50">

@@ -4,7 +4,7 @@ import { addToken, getToken, removeToken } from "../util/auth";
 import { User } from "../types";
 import { useSnackbar } from "../context/SnackbarContext";
 import { useNavigate, useParams } from "react-router-dom";
-import { useSocket } from "../context/SocketContext";
+// import { useSocket } from "../context/SocketContext";
 import { useEffect } from "react";
 
 export const useUser = () => {
@@ -35,13 +35,13 @@ export const useAuth = () => {
   const params = useParams();
   const { snackbar } = useSnackbar();
   const navigate = useNavigate();
-  const { setToken } = useSocket();
+  // const { setToken } = useSocket();
 
   return useMutation({
     mutationFn: authorization,
     onSuccess: (data) => {
       addToken(data.token);
-      setToken(data.token);
+      // setToken(data.token);
       snackbar({
         autoHideDuration: 3000,
         message:
