@@ -10,7 +10,7 @@ import CreatePost from "./pages/CreatePost";
 import MyAccount from "./pages/MyAccount";
 import ChangePasswordSection from "./components/my-account/ChangePasswordSection";
 import EditPost from "./pages/EditPost";
-import { SocketProvider } from "./context/SocketContext";
+// import { SocketProvider } from "./context/SocketContext";
 import MyAccountSection from "./components/my-account/MyAccountSection";
 import MyPostsSection from "./components/my-account/MyPostsSection";
 import NotificationsSection from "./components/my-account/NotificationSection";
@@ -106,11 +106,11 @@ const router = createBrowserRouter([
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <SocketProvider>
+      {/* <SocketProvider> */}
         <SnackbarProvider>
           <RouterProvider router={router} />
         </SnackbarProvider>
-      </SocketProvider>
+      {/* </SocketProvider> */}
     </QueryClientProvider>
   );
 }
