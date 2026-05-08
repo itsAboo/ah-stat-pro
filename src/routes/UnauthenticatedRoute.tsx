@@ -7,7 +7,7 @@ export default function UnauthenticatedRoute({
   children: React.ReactNode;
 }) {
   if (getToken()) {
-    return <Navigate to="/hee" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return children;
