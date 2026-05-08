@@ -22,6 +22,7 @@ export const useUser = () => {
 
   useEffect(() => {
     if (isError) {
+      console.log("Error Remove token");
       removeToken();
       queryClient.setQueryData(["user"], null);
     }
