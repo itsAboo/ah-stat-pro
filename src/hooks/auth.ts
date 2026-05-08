@@ -40,6 +40,7 @@ export const useAuth = () => {
   return useMutation({
     mutationFn: authorization,
     onSuccess: (data) => {
+      queryClient.setQueryData(["user"], data.user);
       addToken(data.token);
       // setToken(data.token);
       snackbar({
@@ -49,7 +50,7 @@ export const useAuth = () => {
             ? "Successfully sign up"
             : "Successfully sign in",
       });
-      queryClient.setQueryData(["user"], data.user);
+
       navigate("/");
     },
   });
